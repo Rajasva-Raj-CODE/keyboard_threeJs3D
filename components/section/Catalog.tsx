@@ -1,8 +1,50 @@
 import React from 'react'
 
-const Catalog = () => {
+
+const products = [
+  {
+    id: "1",
+    imgSrc: "/assets/keyboard1.png",
+    title: "Magic Keyboard",
+    price: 79.99,
+    modelSrc: "/assets/keyboard.glb",
+  },
+  {
+    id: "2",
+    imgSrc: "/assets/keyboard2.png",
+    title: "Dragon Keyboard",
+    price: 89.99,
+    modelSrc: "/assets/keyboard2.glb",
+  },
+  {
+    id: "3",
+    imgSrc: "/assets/keyboard3.png",
+    title: "Gold Keyboard",
+    price: 99.99,
+    modelSrc: "/assets/keyboard3.glb",
+  }
+];
+
+export type productType = {
+  id: string;
+  imgSrc: string;
+  title: string;
+  price: number;
+  modelSrc: string;
+}
+
+interface CatalogProps {
+  selectedProduct: productType;
+  onproductClick: (product: productType) => void;
+}
+
+const Catalog = ({ selectedProduct, onproductClick }: CatalogProps) => {
   return (
-    <div id='catalog'>Catalog</div>
+    <div id='catalog'>
+      <h2 className='text-2xl font-semibold pl-4 md:pl-16 '>
+
+      </h2>
+    </div>
   )
 }
 
