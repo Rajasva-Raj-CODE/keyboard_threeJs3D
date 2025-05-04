@@ -1,4 +1,5 @@
 import React from 'react'
+import ProductCard from '../ProductCard';
 
 
 const products = [
@@ -40,10 +41,24 @@ interface CatalogProps {
 
 const Catalog = ({ selectedProduct, onproductClick }: CatalogProps) => {
   return (
-    <div id='catalog'>
+    <div id='catalog'  className='max-w-5xl mx-auto'>
       <h2 className='text-2xl font-semibold pl-4 md:pl-16 '>
-
+        <span className='aniamte-pulse'>/</span>
+        catalog
       </h2>
+      <div className="w-full flex flex-col items-center lg:flex-row gap-6 mx-auto">
+        {products.map((product, index) => (
+          <ProductCard
+            key={index}
+            index={index}
+            imgSrc={product.imgSrc}
+            title={product.title}
+            price={product.price}
+            isActive={selectedProduct.id === product.id}
+            onClick={() => onproductClick(product)}
+          />
+        ))}
+      </div>
     </div>
   )
 }
