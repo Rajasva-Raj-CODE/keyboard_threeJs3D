@@ -56,17 +56,12 @@ const reviews = [
 
 const Reviews = () => {
   return (
-    <div className='container mx-auto my-32 pt-8 ' id="reviews">
-      <h2 className='text-2xl font-semibold pl-4 md:pl-16 '>
-        <span className='aniamte-pulse'>/</span>
-        reviews
-      </h2>
-      <Marquee speed={25}>
+    <div className='container mx-auto my-16 sm:my-24 md:my-32 px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8' id="reviews">
+      <Marquee speed={20} pauseOnHover={true} gradient={false} className='py-2'>
         {reviews.map((review, index) => (
           <ReviewCard key={index} name={review.name} imgSrc={review.imgSrc} text={review.text} stars={review.stars} />
         ))}
       </Marquee>
-
     </div>
   )
 }

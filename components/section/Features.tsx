@@ -30,12 +30,8 @@ const features = [
 
 const Features = () => {
   return (
-    <div id='features' className='max-w-5xl mx-auto pt-8'>
-      <h2 className='text-2xl font-semibold pl-4 md:pl-16 '>
-        <span className='aniamte-pulse'>/</span>
-        features
-      </h2>
-      <div className="flex flex-wrap items-center justify-center gap-8 max-w-4xl mx-auto">
+    <div id='features' className='w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 pt-24 pb-12'>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 justify-items-center max-w-4xl mx-auto px-4">
         {features.map((feature, index) => (
           <FeatureCard
             key={index}
@@ -44,7 +40,6 @@ const Features = () => {
             title={feature.title}
             description={feature.description}
           />
-
         ))}
       </div>
     </div>

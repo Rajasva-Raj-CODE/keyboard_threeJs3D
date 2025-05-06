@@ -17,10 +17,10 @@ const Products = () => {
     setSelectedProduct(product)
   }
   return (
-    <div>
+    <section className="w-full py-8 sm:py-12 md:py-16">
       <Catalog selectedProduct={selectedProduct} onproductClick={handleProductClick} />
       <Preview />
-    </div>
+    </section>
   )
 }
 

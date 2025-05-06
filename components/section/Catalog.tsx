@@ -41,12 +41,8 @@ interface CatalogProps {
 
 const Catalog = ({ selectedProduct, onproductClick }: CatalogProps) => {
   return (
-    <div id='catalog'  className='max-w-5xl mx-auto'>
-      <h2 className='text-2xl font-semibold pl-4 md:pl-16 '>
-        <span className='aniamte-pulse'>/</span>
-        catalog
-      </h2>
-      <div className="w-full flex flex-col items-center lg:flex-row gap-6 mx-auto">
+    <div id='catalog' className='w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8'>
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 justify-items-center">
         {products.map((product, index) => (
           <ProductCard
             key={index}
