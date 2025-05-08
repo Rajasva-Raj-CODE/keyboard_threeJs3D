@@ -1,16 +1,33 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import * as THREE from 'three'
 
 const Preview = () => {
+  const mountRef = useRef<HTMLDivElement | null>(null)
+  useEffect(() => {
+  const mount = mountRef.current
+    if (!mount) return;
+
+
+    const scene = new THREE.Scene()
+    const sceneWidth = window.innerWidth
+    const sceneHeight = window.innerHeight
+    const renderer = new THREE.WebGLRenderer()
+    renderer.setSize(sceneWidth, sceneHeight)
+
+    mount.appendChild(renderer.domElement)
+    const camera = new THREE.PerspectiveCamera(75, sceneWidth / sceneHeight, 0.1, 1000)
+    const geometry = new THREE.BoxGeometry(1, 1, 1)
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
+    const cube = new THREE.Mesh(geometry, material)
+    scene.add(cube)
+    renderer.render(scene, camera)
+  
+
+  })
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12">
-      <h2 className='text-2xl font-semibold mb-6 sm:mb-8'>
-        <span className='animate-pulse'>/</span>
-        preview
-      </h2>
-      <div className="w-full bg-stone-800 rounded-xl p-4 sm:p-6 md:p-8 min-h-[200px] flex items-center justify-center">
-        <p className="text-slate-400">Product preview will appear here</p>
-      </div>
-    </div>
+    <div ref={ mountRef} className='w-screen h-screen'/>
+
+
   )
 }
 
